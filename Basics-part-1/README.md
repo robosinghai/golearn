@@ -20,14 +20,16 @@ Static Typing - Static typing means that variables are of a specific type, e.g.,
 
 ——————————————————————————————————————
 
-:rubbish_bin:#3 - Garbage Collection!
+🗑️:#3 - Garbage Collection!
 
 ——————————————————————————————————————
 
 Think of it as a process where a variable's life can be easily defined, e.g., using the scope operator, i.e., the variable disappears when the function exits. Typically, in C one would use a free() function to clear out the trash. GO is great at Garbage collection as it handles this automatically for you
 
 ———————————————————————————————————————————————————————— 
+
 :reminder_ribbon:#4 - Like. Love. Share :heart_hands::skin-tone-3:
+
 ———————————————————————————————————————————————————————
 
 If this is something you enjoyed reading. Show some love :zap:
