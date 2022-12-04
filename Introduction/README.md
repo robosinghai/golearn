@@ -22,7 +22,7 @@ So yes, it is relevant; and it's not going away soon! However, all this optimisa
 
 ——————————————————
 
-:face_with_diagonal_mouth:#3 - System-level? Meh!
+:smile:#3 - System-level? Meh!
 
 ——————————————————
 
