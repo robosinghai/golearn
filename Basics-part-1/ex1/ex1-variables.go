@@ -1,6 +1,10 @@
 package main // Interface
 
-import "fmt" // Standard library
+import (
+	"fmt" // Standard library
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
 	//NOTE: By default, GO assigns a zero value to variables
@@ -11,6 +15,7 @@ func main() {
 	// var keyword can be dropped. := infers the type automatically
 	sens_val := getSensorReading() // Implicit assignment
 	fmt.Printf("Sensor reading: %d\n", sens_val)
+	godotenv.Load()
 }
 
 // Implicit assignment from a function (returning int)
