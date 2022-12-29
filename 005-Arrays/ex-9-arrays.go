@@ -28,15 +28,21 @@ func (dType DeviceType) String() string {
 
 func main() {
 	dev := MakeArray(5) // make array of lenght 5
-	// This function generates dummy devices
+	// user-defined function generates dummy devices
 	genDummyDevices(dev) // generate dummy devices
 
 	// Add to registry
-	reg := Registry{}
+	reg := Registry{} // empty structure (method 1) or
+	// reg := new(Registry) // method 2
 
+	// Append each device to registry
 	for i := range dev {
 		reg.AddDeviceToRegistry(dev[i])
 	}
-	log.Printf("Number of devices in registyr: %d", len(reg.Devices))
-
+	log.Printf("Number of devices in registry: %d",
+		len(reg.Devices)) // prints 5
+	for i := range reg.Devices {
+		log.Printf("dev: %s\t%f\t%s", reg.Devices[i].ID,
+			reg.Devices[i].Reading, reg.Devices[i].Type)
+	}
 }

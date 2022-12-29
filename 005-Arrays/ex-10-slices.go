@@ -23,10 +23,12 @@ func MakeArray(arr_length int) []*Device {
 	// Method 4: Make an array of type *Device with a slice length of 0 and capacity of 10
 	devices := make([]*Device, 0, arr_length) // Note: slice is 0...
 	// devices[5] = "dev-005" 		// ... hence this statement will throw an error
+	log.Printf("Length of the array when slice is 0: %d",
+		len(devices)) // returns 0
 
 	// Reset the slice
 	devices = devices[0:5]
-	log.Printf("Length of the array: %d", len(devices))
+	log.Printf("Length of the array after the array is sliced: %d", len(devices)) // returns 5
 
 	return devices
 }
@@ -34,7 +36,7 @@ func MakeArray(arr_length int) []*Device {
 // Demo - Expand a slice of an array and add append to it
 // Note - The slice is expanded in the MakeArray func ^ ^
 func (registry *Registry) AddDeviceToRegistry(dev *Device) {
-	log.Printf("dev: %s\t%f\t%s", dev.ID, dev.Reading, dev.Type)
+
 	registry.Devices = append(registry.Devices, *dev)
 }
 
