@@ -4,6 +4,8 @@ import (
 	"log"
 )
 
+// Check out golearn/devices package for a better way to declear
+// structs and associated functions.
 type Device struct {
 	ID      string
 	Reading float64

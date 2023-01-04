@@ -1,14 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"golearn/devices"
 	"log"
-	"math/rand"
-	"time"
 )
 
 // Demo - Different ways to make arrays in Golang
-func MakeArray(arr_length int) []*Device {
+func MakeArray(arr_length int) []*devices.Device {
 	// Four ways to initalise an array
 
 	// Method 1: Meth_1 is assigned an array of type string with values{""}
@@ -21,7 +19,7 @@ func MakeArray(arr_length int) []*Device {
 	// var devs []string
 
 	// Method 4: Make an array of type *Device with a slice length of 0 and capacity of 10
-	devices := make([]*Device, 0, arr_length) // Note: slice is 0...
+	devices := make([]*devices.Device, 5, arr_length) // Note: slice is 0...
 	// devices[5] = "dev-005" 		// ... hence this statement will throw an error
 	log.Printf("Length of the array when slice is 0: %d",
 		len(devices)) // returns 0
@@ -30,34 +28,5 @@ func MakeArray(arr_length int) []*Device {
 	devices = devices[0:5]
 	log.Printf("Length of the array after the array is sliced: %d", len(devices)) // returns 5
 
-	return devices
-}
-
-// Demo - Expand a slice of an array and add append to it
-// Note - The slice is expanded in the MakeArray func ^ ^
-func (registry *Registry) AddDeviceToRegistry(dev *Device) {
-
-	registry.Devices = append(registry.Devices, *dev)
-}
-
-// A simple private func to generate random data for type Device
-func genDummyDevices(devices []*Device) []*Device {
-	min_val := 17.0
-	max_val := 24.0
-	rand.Seed(time.Now().Unix())
-
-	for i := range devices {
-		// allocate memory of type Device
-		tmp_dev := new(Device)
-		// initialise ID. Note: %03d (zero-padding)
-		tmp_dev.ID = fmt.Sprintf("dev-%03d", i)
-		// Generate random float64 number between a range
-		tmp_dev.Reading = min_val + rand.Float64()*(max_val-min_val)
-		// Generate random device types between min/max enum range
-		tmp := rand.Intn(int(NumOfDevTypes)-0) + 0
-		// DeviceType is an enum with an assoc. func String()
-		tmp_dev.Type = DeviceType(tmp).String()
-		devices[i] = tmp_dev
-	}
 	return devices
 }
